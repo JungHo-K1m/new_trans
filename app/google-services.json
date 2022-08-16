@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "740973246074",
+    "firebase_url": "https://transmenu-95eed-default-rtdb.firebaseio.com",
+    "project_id": "transmenu-95eed",
+    "storage_bucket": "transmenu-95eed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740973246074:android:56af101ca6ae85dbd76dc3",
+        "android_client_info": {
+          "package_name": "com.example.transmenu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740973246074-3hufu4elf3p0mka34prnln0859q6sabn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.transmenu",
+            "certificate_hash": "f1247ee73c865be9a9d49323a7228ee28c0fa79e"
+          }
+        },
+        {
+          "client_id": "740973246074-d4gkhuk6ekrdb2uj373g0ub1u4c5fv73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHYZhsuQLKltTSy0JogQfBgBoabQDJ768"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740973246074-d4gkhuk6ekrdb2uj373g0ub1u4c5fv73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
