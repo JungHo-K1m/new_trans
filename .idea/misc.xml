@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/drawable/border.xml" value="0.134" />
         <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/activity_food.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/activity_login.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/activity_register.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/activity_review.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/activity_write.xml" value="0.259375" />
         <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/ingredient_list.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/TransMenu/app/src/main/res/layout/view_loader.xml" value="0.27395833333333336" />
       </map>

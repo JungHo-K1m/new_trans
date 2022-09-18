@@ -50,7 +50,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
     // RecyclerView의 핵심인 ViewHolder
     // 여기서 subView를 setting
-    class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    static class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView txt_chartTitle;
         private String url;
@@ -67,15 +67,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
             txt_chartTitle.setText(data.getNoTitle());
 
+
             itemView.setOnClickListener(this);
             txt_chartTitle.setOnClickListener(this);
 
-            Log.d("RecyclerAdapter!!!!!", data.getNoTitle() + "\n");
+            Log.d("RecyclerAdapter!!", data.getNoTitle() + "\n");
         }
 
         @Override
         public void onClick(View view) {
-            Log.d("click_item!!!!!", String.valueOf(view.getId()));
+            Log.d("click_item!!", String.valueOf(view.getId()));
         }
     }
 }

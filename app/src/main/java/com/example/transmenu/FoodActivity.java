@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +36,7 @@ public class FoodActivity extends AppCompatActivity {
     String food_url, ing_url, food_name;
     TextView result_text;
     ImageView food_imView;
+    Button review_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class FoodActivity extends AppCompatActivity {
         intent =getIntent();
         food_name =intent.getStringExtra("code");
         food_url = "https://www.10000recipe.com/recipe/list.html?q=" + food_name + "&order=reco&page=1";
+        review_btn = (Button)findViewById(R.id.show_review);
 
         food_imView = findViewById(R.id.food_img);
         result_text.setText(food_name);
@@ -61,6 +65,15 @@ public class FoodActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         getData();
+
+        //리뷰 보러가기 버튼 클릭
+        review_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FoodActivity.this, ReviewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getData(){
@@ -77,14 +90,14 @@ public class FoodActivity extends AppCompatActivity {
 
             try {
                 Document doc = (Document) Jsoup.connect(food_url).get();
-                final Elements rank_list1 = doc.select("li.common_sp_list_li div.common_sp_thumb a");
-                String tmp = rank_list1.attr("href");
-                ing_url = "https://www.10000recipe.com/" + tmp;
+                final Elements rank_list1 = doc.select("li.common_sp_list_li div.common_sp_thumb a");   //검색결과 리스트
+                String tmp = rank_list1.attr("href");   //가장 첫번째(인기많은) 음식 코드
+                ing_url = "https://www.10000recipe.com/" + tmp;     //음식 정보 링크
 
                 Document doc2 = (Document) Jsoup.connect(ing_url).get();
-                final Elements food = doc2.select("div.cont_ingre2 div.ready_ingre3 ul li a");
-                final Elements food_img = doc2.select("div.view2_pic div.centeredcrop img");
-                String img = food_img.attr("src");
+                final Elements food = doc2.select("div.cont_ingre2 div.ready_ingre3 ul li a");  //재료 목록
+                final Elements food_img = doc2.select("div.view2_pic div.centeredcrop img");    //이미 링크가 있는 태그
+                String img = food_img.attr("src");  //음식 이미지 링크
 
                 new DownloadFileTask().execute(img);
 
@@ -96,9 +109,9 @@ public class FoodActivity extends AppCompatActivity {
 
                         int cnt=0;
                         String tmp;
-                        //순위정보
+                        //재료 정보 크롤링
                         for(Element element: food) {
-                            Log.d("뭐가 있나", element.text() +"\n");
+                            Log.d("뭐가 있나", element.text() +"\n");   //가져온 재료 로그에서 확인
                             tmp = element.text();
                             if(tmp != "구매"){
                                 Log.d("있나", element.text() +"\n");
@@ -107,10 +120,8 @@ public class FoodActivity extends AppCompatActivity {
                             }
                         }
 
-
-
                         for (int i = 0; i < cnt ; i++) {
-                            if(cnt % 2 == 0){
+                            if(listTitle.get(i) != "구매"){
                                 FoodInfo data = new FoodInfo();
                                 data.setNoTitle(listTitle.get(i));
                                 adapter.addItem(data);

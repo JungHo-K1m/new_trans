@@ -152,9 +152,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(i1,0);
                 break;
             case R.id.read_btn:
-                //메뉴판 읽기(텍스트 추출)
-                FoodName = "콩나물국밥"; //추출된 텍스트
-                //텍스트(음식 이름)을 넘기면 해당 음식에 대한 재료 크롤링(FoodActivity)
+                //메뉴판 읽기(텍스트 추출) 버튼 클릭 시 OCR 작동 및 텍스트 추출
+                FoodName = "콩나물국밥"; //임의로 추출된 텍스트, OCR 이후 추출된 텍스트를 넣는다.
+                //텍스트(음식 이름)를 넘기면 해당 음식에 대한 재료 크롤링(FoodActivity)
                 Intent i2 = new Intent(MainActivity.this, FoodActivity.class);
                 i2.putExtra("code",FoodName);
                 startActivity(i2);
